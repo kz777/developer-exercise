@@ -1,3 +1,4 @@
+require 'rspec'
 class Card
   attr_accessor :suite, :name, :value
 
@@ -51,24 +52,39 @@ class Hand
   end
 end
 
-require 'test/unit'
 
-class CardTest < Test::Unit::TestCase
-  def setup
-    @card = Card.new(:hearts, :ten, 10)
-  end
-  
-  def test_card_suite_is_correct
-    assert_equal @card.suite, :hearts
+describe Card do
+
+  it "should accept suit and value when building" do
+    card = Card.new(:clubs, 10)
+    expect(card.suit).to eq(:clubs)
+    expect(card.value).to eq(10)
   end
 
-  def test_card_name_is_correct
-    assert_equal @card.name, :ten
+  it "should have a value of 10 for facecards" do
+    facecards = ["J", "Q", "K"]
+    facecards.each do |facecard|
+      card = Card.new(:hearts, facecard)
+      expect(card.value).to eq(10)
+    end
   end
-  def test_card_value_is_correct
-    assert_equal @card.value, 10
+  it "should have a value of 4 for the 4-clubs" do
+    card = Card.new(:clubs, 4)
+    expect(card.value).to eq(4)
   end
+
+  it "should return 11 for Ace" do
+    card = Card.new(:diamonds, "A")
+    expect(card.value).to eq(11)
+  end
+
+  it "should be formatted nicely" do
+    card = Card.new(:diamonds, "A")
+    expect(card.to_s).to eq("A-diamonds")
+  end
+
 end
+
 
 class DeckTest < Test::Unit::TestCase
   def setup
