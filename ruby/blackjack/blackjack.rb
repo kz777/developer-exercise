@@ -21,39 +21,23 @@ class Card
 end
 
 class Deck
-  attr_accessor :playable_cards
-  SUITES = [:hearts, :diamonds, :spades, :clubs]
-  NAME_VALUES = {
-    :two   => 2,
-    :three => 3,
-    :four  => 4,
-    :five  => 5,
-    :six   => 6,
-    :seven => 7,
-    :eight => 8,
-    :nine  => 9,
-    :ten   => 10,
-    :jack  => 10,
-    :queen => 10,
-    :king  => 10,
-    :ace   => [11, 1]}
+  attr_accessor :cards
 
   def initialize
-    shuffle
+    @cards = Deck.build_cards
   end
 
-  def deal_card
-    random = rand(@playable_cards.size)
-    @playable_cards.delete_at(random)
-  end
-
-  def shuffle
-    @playable_cards = []
-    SUITES.each do |suite|
-      NAME_VALUES.each do |name, value|
-        @playable_cards << Card.new(suite, name, value)
+  def self.build_cards
+    cards = []
+    [:clubs, :diamonds, :spades, :hearts].each do |suit|
+      (2..10).each do |number|
+        cards << Card.new(suit, number)
+      end
+      ["J", "Q", "K", "A"].each do |facecard|
+        cards << Card.new(suit, facecard)
       end
     end
+    cards.shuffle
   end
 end
 
@@ -62,6 +46,21 @@ class Hand
 
   def initialize
     @cards = []
+  end
+
+  def hit!(deck)
+    @cards << deck.cards.shift
+  end
+
+  def value
+    cards.inject(0) {|sum, card| sum += card.value }
+  end
+
+  def play_as_dealer(deck)
+    if value < 17
+      hit!(deck)
+      play_as_dealer(deck)
+    end
   end
 end
 
@@ -141,7 +140,7 @@ describe Hand do
       hand.play_as_dealer(deck)
       expect(hand.value).to eq(17)
     end
-    it "should not hit above" do
+    it "should not hit above 17" do
       deck = double(:deck, :cards => [Card.new(:clubs, 8), Card.new(:diamonds, "Q")])
       hand = Hand.new
       2.times { hand.hit!(deck) }
