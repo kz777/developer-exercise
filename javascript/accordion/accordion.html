@@ -2,50 +2,103 @@
                     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Jquery Accordion Widget</title>
+
   <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
-  <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+  <link rel="stylesheet" type="text/css" href="accordion.css" />
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.easing.1.3.js"></script>
+
+  <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" src="tests.js"></script>  
 </head>
 <body>
-  <div id="act-sections">
-    <div>ACT Sections:</div>
-    <div class="accordion-wrapper">
-      <div class="accordion-header">
-        <a href="#">Math</a>
-        <div>
-          Etiam pharetra enim vel enim lacinia facilisis. Proin at massa ac mauris mattis faucibus eget id lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed feugiat lacinia leo, et volutpat magna pulvinar at. Donec a libero in velit consequat malesuada. Donec turpis augue, malesuada vel luctus ac, porta nec leo. Proin vestibulum varius nibh, id condimentum est placerat id. Proin volutpat laoreet quam ut sollicitudin. Maecenas ac mauris rutrum justo auctor elementum in et purus. Vestibulum a nisi a tortor adipiscing imperdiet. Sed mi augue, lobortis in adipiscing nec, consequat in odio.
-        </div>
-      </div>
-      <div class="accordion-header">
-        <a href="#">English</a>
-        <div>
-          Morbi pharetra erat quis mauris placerat aliquet. Aenean sapien est, faucibus vitae rhoncus ac, hendrerit in mauris. Curabitur porta tempus nunc, tempor aliquet odio sollicitudin a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non lorem vitae lacus convallis hendrerit. In hac habitasse platea dictumst. Pellentesque facilisis laoreet arcu viverra sodales. Duis in diam augue, eget commodo libero. Curabitur feugiat ullamcorper nulla, tristique tincidunt lacus hendrerit vitae
-        </div>
-      </div>
-      <div class="accordion-header">
-        <a href="#">Reading</a>
-        <div>
-          Maecenas facilisis consequat arcu, sit amet consectetur nunc ullamcorper sit amet. Nunc facilisis tempus rhoncus. Etiam ut dapibus ligula. Vestibulum ac scelerisque metus. Aenean posuere enim non mi eleifend egestas. Aliquam rhoncus sem non ante interdum eu vestibulum leo hendrerit. Fusce ultricies ligula eu augue tincidunt laoreet. Vestibulum venenatis nisi ultricies tellus sollicitudin ut dapibus eros placerat.
-        </div>
-      </div>
-      <div class="accordion-header">
-        <a href="#">Science</a>
-        <div>
-          Quisque in porta felis. Integer massa elit, lobortis nec sodales et, ultricies eget risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque vehicula mi et urna pharetra pharetra. Cras aliquam, turpis vitae tempor faucibus, purus mauris malesuada lorem, sed condimentum nisl orci aliquam tortor. Nam viverra commodo orci non euismod. Aenean semper dignissim metus. Nullam ut lectus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla facilisi. In et felis velit, ac semper enim. Vivamus sit amet nisi quis neque interdum lacinia vel ac nibh. Vestibulum eros turpis, consequat quis auctor in, convallis cursus orci. Praesent sit amet ipsum eget nisi fringilla eleifend sed in turpis.
-        </div>
-      </div>
-      <div class="accordion-header">
-        <a href="#">Writing</a>
-        <div>
-        Sed euismod tristique nunc eget hendrerit. Nam non justo augue. Quisque adipiscing enim eget sapien luctus ultricies. Nulla eu arcu nec nunc tristique sodales. Mauris vitae nulla dolor. Integer a erat nunc, vel condimentum nulla. Nulla pretium consequat turpis ac sagittis. Sed sagittis dolor vel erat laoreet pretium. Nunc a augue eros. Pellentesque ut augue quis lorem viverra feugiat. Sed dolor justo, gravida id laoreet quis, pulvinar lacinia lacus. Sed non feugiat enim. Maecenas vel ipsum eros. Mauris eu neque sit amet nibh euismod volutpat eu quis ipsum. Vestibulum mollis aliquam condimentum.
-        </div>
-      </div>
-    </div>
-  </div>
-  <h1 id="qunit-header">QUnit example</h1>
-  <ol id="qunit-tests"></ol>
-  <div id="qunit-fixture">
+  <div id="main">
+    <h1>ACT Sections:</h1>
+
+
+      <ul class="container">
+        <li class="menu">
+        
+            <ul>
+          <li class="button"><a href="#" class="green">Math <span></span></a></li>
+
+              <li class="dropdown">
+                  <ul>
+                      <li><a href="#" onclick="$('.button a:last').click();return false;"> Etiam pharetra enim vel enim lacinia facilisis. Proin at massa ac mauris mattis faucibus eget id lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed feugiat lacinia leo, et volutpat magna pulvinar at. Donec a libero in velit consequat malesuada. Donec turpis augue, malesuada vel luctus ac, porta nec leo. Proin vestibulum varius nibh, id condimentum est placerat id. Proin volutpat laoreet quam ut sollicitudin. Maecenas ac mauris rutrum justo auctor elementum in et purus. Vestibulum a nisi a tortor adipiscing imperdiet. Sed mi augue, lobortis in adipiscing nec, consequat in odio.</a></li>
+                  </ul>
+        </li>
+
+            </ul>
+            
+        </li>
+        
+        <li class="menu">
+        
+            <ul>
+          <li class="button"><a href="#" class="orange">English <span></span></a></li>            
+
+              <li class="dropdown">
+                  <ul>
+                      <li>Morbi pharetra erat quis mauris placerat aliquet. Aenean sapien est, faucibus vitae rhoncus ac, hendrerit in mauris. Curabitur porta tempus nunc, tempor aliquet odio sollicitudin a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla non lorem vitae lacus convallis hendrerit. In hac habitasse platea dictumst. Pellentesque facilisis laoreet arcu viverra sodales. Duis in diam augue, eget commodo libero. Curabitur feugiat ullamcorper nulla, tristique tincidunt lacus hendrerit vitae.</li>
+                  </ul>
+        </li>
+
+            </ul>
+            
+        </li>
+
+        
+        <li class="menu">
+        
+            <ul>
+          <li class="button"><a href="#" class="red">Reading <span></span></a></li>
+
+              <li class="dropdown">
+                  <ul>
+                      <li>Maecenas facilisis consequat arcu, sit amet consectetur nunc ullamcorper sit amet. Nunc facilisis tempus rhoncus. Etiam ut dapibus ligula. Vestibulum ac scelerisque metus. Aenean posuere enim non mi eleifend egestas. Aliquam rhoncus sem non ante interdum eu vestibulum leo hendrerit. Fusce ultricies ligula eu augue tincidunt laoreet. Vestibulum venenatis nisi ultricies tellus sollicitudin ut dapibus eros placerat.</li>
+                  </ul>
+        </li>
+
+            </ul>
+            
+        </li>
+
+      
+        <li class="menu">
+        
+            <ul>
+          <li class="button"><a href="#" class="orange">Science <span></span></a></li>
+
+              <li class="dropdown">
+                  <ul>
+                      <li>Quisque in porta felis. Integer massa elit, lobortis nec sodales et, ultricies eget risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque vehicula mi et urna pharetra pharetra. Cras aliquam, turpis vitae tempor faucibus, purus mauris malesuada lorem, sed condimentum nisl orci aliquam tortor. Nam viverra commodo orci non euismod. Aenean semper dignissim metus. Nullam ut lectus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla facilisi. In et felis velit, ac semper enim. Vivamus sit amet nisi quis neque interdum lacinia vel ac nibh. Vestibulum eros turpis, consequat quis auctor in, convallis cursus orci. Praesent sit amet ipsum eget nisi fringilla eleifend sed in turpis.</li>
+                  </ul>
+        </li>
+
+            </ul>
+            
+        </li>
+
+        <li class="menu">
+        
+            <ul>
+          <li class="button"><a href="#" class="blue">Writing<span></span></a></li>
+
+              <li class="dropdown">
+                  <ul>
+                      <li>Sed euismod tristique nunc eget hendrerit. Nam non justo augue. Quisque adipiscing enim eget sapien luctus ultricies. Nulla eu arcu nec nunc tristique sodales. Mauris vitae nulla dolor. Integer a erat nunc, vel condimentum nulla. Nulla pretium consequat turpis ac sagittis. Sed sagittis dolor vel erat laoreet pretium. Nunc a augue eros. Pellentesque ut augue quis lorem viverra feugiat. Sed dolor justo, gravida id laoreet quis, pulvinar lacinia lacus. Sed non feugiat enim. Maecenas vel ipsum eros. Mauris eu neque sit amet nibh euismod volutpat eu quis ipsum. Vestibulum mollis aliquam condimentum.</li>
+                  </ul>
+        </li>
+
+            </ul>
+            
+        </li>
+
+    </ul>
+
   </div>
 </body>
 </html>
